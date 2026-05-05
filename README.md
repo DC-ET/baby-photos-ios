@@ -32,10 +32,7 @@
 - **去重与记录**：已分析路径写入 SwiftData，避免对同一张照片重复调用 API。
 - **后台任务**：BGTaskScheduler 周期性扫描。
 
-![image](docs/image.png)
-![image](docs/image2.png)
-![image](docs/image3.png)
-
+<p align="center"><img src="docs/image.jpg" alt="截图" width="32%" /> <img src="docs/image2.jpg" alt="截图" width="32%" /> <img src="docs/image3.jpg" alt="截图" width="32%" /></p>
 ---
 
 ## 使用说明
