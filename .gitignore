@@ -1,0 +1,53 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Xcode — 用户本地状态（scheme、断点等）
+**/xcuserdata/
+*.xcuserstate
+
+# Xcode — 构建产物与索引
+build/
+DerivedData/
+*.hmap
+*.ipa
+*.dSYM
+*.dSYM.zip
+
+# Xcode — 兼容旧版
+*.moved-aside
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+*.xccheckout
+*.xcscmblueprint
+
+# Swift Package Manager（应用项目建议提交 Package.resolved 以锁定依赖）
+.swiftpm/configuration/
+
+# CocoaPods（若后续接入）
+Pods/
+
+# Carthage
+Carthage/Build/
+
+# fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+# 编辑器备份
+*.swp
+*~
+
+# Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
