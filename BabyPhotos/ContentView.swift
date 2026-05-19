@@ -8,6 +8,11 @@ struct ContentView: View {
                     Label("首页", systemImage: "house.fill")
                 }
 
+            AlbumView()
+                .tabItem {
+                    Label("相册", systemImage: "photo.on.rectangle.angled")
+                }
+
             HistoryView()
                 .tabItem {
                     Label("记录", systemImage: "clock.fill")

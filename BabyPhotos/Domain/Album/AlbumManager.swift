@@ -2,25 +2,30 @@ import Foundation
 @preconcurrency import Photos
 
 final class AlbumManager: Sendable {
-    private let albumName = "宝宝相册"
+    static let babyAlbumTitle = "宝宝相册"
 
-    /// Fetches the existing baby album or creates a new one.
-    private func getOrCreateAlbum() async throws -> PHAssetCollection {
-        // Try to find existing album
+    /// Returns the baby album if it already exists (does not create).
+    static func findBabyAlbumCollection() -> PHAssetCollection? {
         let fetchOptions = PHFetchOptions()
-        fetchOptions.predicate = NSPredicate(format: "title == %@", albumName)
+        fetchOptions.predicate = NSPredicate(format: "title == %@", babyAlbumTitle)
         let collections = PHAssetCollection.fetchAssetCollections(
             with: .album, subtype: .any, options: fetchOptions
         )
+        return collections.firstObject
+    }
 
-        if let existing = collections.firstObject {
+    /// Fetches the existing baby album or creates a new one.
+    private func getOrCreateAlbum() async throws -> PHAssetCollection {
+        if let existing = Self.findBabyAlbumCollection() {
             return existing
         }
 
         // Create new album
         var albumPlaceholder: PHObjectPlaceholder?
         try await PHPhotoLibrary.shared().performChanges {
-            let request = PHAssetCollectionChangeRequest.creationRequestForAssetCollection(withTitle: self.albumName)
+            let request = PHAssetCollectionChangeRequest.creationRequestForAssetCollection(
+                withTitle: Self.babyAlbumTitle
+            )
             albumPlaceholder = request.placeholderForCreatedAssetCollection
         }
 
